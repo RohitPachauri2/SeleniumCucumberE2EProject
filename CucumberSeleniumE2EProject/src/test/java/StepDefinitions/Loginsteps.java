@@ -11,6 +11,7 @@ import org.testng.Assert;
 
 import Factory.DriverFactory;
 import Pages.LoginPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -46,14 +47,24 @@ public class Loginsteps {
 	public void page_title_should_be(String string) {
 		Assert.assertTrue(driver.getTitle().contains(string));
 	}
-
+	
 	@When("user enters username {string}")
 	public void user_enters_username(String usr) throws InterruptedException {
+		Thread.sleep(2000);
 		lp.clickonsiginlink();
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.name("email"))));
 		lp.enterusername(usr);
 		Thread.sleep(2000);
 	}
+	
+	@Then("user enters the given username {string}")
+	public void user_enters_the_given_username(String string) throws InterruptedException {
+		Thread.sleep(2000);
+		lp.enterusername(string);
+		Thread.sleep(2000);
+	}
+
+	
 
 	@When("user enters password {string}")
 	public void user_enters_password(String pass) throws InterruptedException {

@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 		glue= {"StepDefinitions","Hooks"},
 		dryRun = false,
 //		tags= "@test3 or @test1",
-		tags="@test2"
+		tags="@test5"
 		
 		)
 

@@ -1,8 +1,12 @@
 package Hooks;
 
+import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -47,6 +51,29 @@ public class ApplicationHook{
 			TakesScreenshot tk=(TakesScreenshot)driver;
 			byte[] sourcepath=tk.getScreenshotAs(OutputType.BYTES);
 			sc.attach(sourcepath, "image/png", screenshotname);
+			// Take screenshot
+		    File src = tk.getScreenshotAs(OutputType.FILE);
+
+		    // Create timestamp (Windows-safe)
+		    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
+		    String timestamp = LocalDateTime.now().format(formatter);
+
+		    // Ensure screenshots folder exists
+		    File dest = new File("screenshots/"+sc.getName()+timestamp + ".png");
+		    dest.getParentFile().mkdirs();
+
+		    // Save screenshot
+		    try {
+				FileUtils.copyFile(src, dest);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
+			
+			
 		}
 	}
 	

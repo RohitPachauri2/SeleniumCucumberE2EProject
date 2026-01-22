@@ -65,20 +65,7 @@ public class Contactus {
 	    // Verify success message
 		cu.suceessalert();
 
-	    // Take screenshot
-	    TakesScreenshot tk = (TakesScreenshot) driver;
-	    File src = tk.getScreenshotAs(OutputType.FILE);
-
-	    // Create timestamp (Windows-safe)
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss");
-	    String timestamp = LocalDateTime.now().format(formatter);
-
-	    // Ensure screenshots folder exists
-	    File dest = new File("screenshots/success_message_" + timestamp + ".png");
-	    dest.getParentFile().mkdirs();
-
-	    // Save screenshot
-	    FileUtils.copyFile(src, dest);
+	    
 	}
 
 

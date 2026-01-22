@@ -13,7 +13,8 @@ public class ConfigReader {
 	 */
 	public Properties init_prop() throws IOException {
 		pro=new Properties();
-		FileInputStream fis=new FileInputStream("C:\\Users\\PC\\eclipse-workspace\\CucumberSeleniumE2EProject\\src\\test\\java\\Config\\Config.properties");
+		FileInputStream fis=new FileInputStream("src/test/java/Config/Config.properties");
+
 		pro.load(fis);
 		String browserString=pro.getProperty("browser");
 		return pro;

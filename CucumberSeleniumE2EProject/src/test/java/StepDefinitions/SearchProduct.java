@@ -1,5 +1,6 @@
 package StepDefinitions;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -18,6 +19,7 @@ public class SearchProduct extends DriverFactory{
 	public void click_on_products_button() throws InterruptedException {
 		sp=new Search_Product(driver);
 		sp.clickproductlink();
+		Thread.sleep(Duration.ofSeconds(5));
 		
 	}
 
@@ -31,6 +33,7 @@ public class SearchProduct extends DriverFactory{
 	public void enter_in_search_input_and_click_search_button(String string) throws InterruptedException {
 		
 		sp.searchproduct(string);
+		Thread.sleep(2000);
 	}
 
 	@Then("{string} is visible")
