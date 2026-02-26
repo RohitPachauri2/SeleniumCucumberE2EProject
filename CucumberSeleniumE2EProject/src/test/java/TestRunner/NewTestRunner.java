@@ -7,7 +7,7 @@ import io.cucumber.testng.CucumberOptions;
 		glue= {"StepDefinitions","Hooks"},
 		features= {"src/test/resources/Feature"},
 		plugin= {"pretty","html:Reports/newtestrunner.html"},
-		dryRun=false,
+//		dryRun=false,
 		monochrome=true,
 		tags="@test4"
 		)
